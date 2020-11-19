@@ -3,23 +3,23 @@ package MediatorPattern;
 
 public abstract class Colleague {
     private Mediator mediator;
-    private String cid;
+    private String id;
     
     public Colleague(Mediator mediator) {
         this.mediator = mediator;
     }
-    public void rentContract(int price, Colleague colleague) {
-        mediator.rentContract(price, this.cid);
+    public void rentContract(RentContract givenContract) {
+        mediator.rentContract(givenContract, this.id);
     }
-    public void terminateRentContract(Colleague colleague) {
-         mediator.terminateRentContract(this.cid);
+    public void terminateRentContract(RentContract givenContract) {
+         mediator.terminateRentContract(givenContract, this.id);
     }
-    
-    public void setColleagueCode(String id) {
-        this.cid = id;
+
+    public String getId() {
+        return id;
     }
-    
-    public String getColleagueCode() {
-        return cid;
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
